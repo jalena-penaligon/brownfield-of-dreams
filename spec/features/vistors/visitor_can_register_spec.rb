@@ -73,7 +73,17 @@ describe 'as a visitor', :vcr, :js do
     expect(user.confirm_token).to be_a(String)
 
     expect(current_path).to eq(dashboard_path)
-    save_and_open_page
+
     expect(page).to have_content("This account has not yet been activated. Please check your email.")
+  end
+
+  it 'allows me to confirm my account' do
+    user = create(:user, confirm_token: "123445689234")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit "/confirm?token=#{user.confirm_token}"
+
+    expect(current_path).to eq(dashboard_path)
+    expect(user.email_confirmed).to eq(true)
+    expect(page).to have_content("Thank you! Your account is now activated.")
   end
 end

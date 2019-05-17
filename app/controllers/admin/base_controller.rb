@@ -1,11 +1,6 @@
-class Admin::BaseController < ApplicationController
-  before_action :require_admin!
+require_relative '../concerns/controller_helper'
 
-  def require_admin!
-    if current_user.nil?
-      four_oh_four
-    else
-      four_oh_four unless current_user.admin?
-    end   
-  end
+class Admin::BaseController < ApplicationController
+  include ControllerHelper
+  before_action :require_admin!
 end

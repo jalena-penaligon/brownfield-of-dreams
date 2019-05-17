@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - script/**/*
+    - bin/**/*
+    - lib/**/*
+    - spec/**/*
+    - node_modules/**/*
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: optional
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Metrics/LineLength:
+  # Ignore class definitions and comments
+  IgnoredPatterns: ['^class .*','^\s*\# .*']

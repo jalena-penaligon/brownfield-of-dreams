@@ -24,7 +24,7 @@ end
 ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  Selenium::WebDriver::Chrome::Service.new(app, browser: :chrome)
 end
 
 Capybara.javascript_driver = :selenium_chrome

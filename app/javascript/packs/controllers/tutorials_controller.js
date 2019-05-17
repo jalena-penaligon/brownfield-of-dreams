@@ -33,6 +33,7 @@ export default class extends Controller {
   }
 
   updateOrder(event) {
+    debugger;
     event.preventDefault();
     fetch(`/admin/api/v1/tutorial_sequencer/${event.target.id}`, {
       method: "PUT",

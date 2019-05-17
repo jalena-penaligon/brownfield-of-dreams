@@ -1,5 +1,6 @@
 class Admin::Api::V1::TutorialSequencerController < Admin::Api::V1::BaseController
   def update
+    binding.pry
     tutorial = Tutorial.find(params[:tutorial_id])
     TutorialSequencer.new(tutorial, ordered_video_ids).run!
 

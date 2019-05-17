@@ -14,11 +14,13 @@
     <tr class="admin-tutorial-card">
       <td><%= link_to tutorial.title, tutorial_path(tutorial) %></td>
       <td>
+        <div class="update-tutorial">
         <%= link_to "Edit", edit_admin_tutorial_path(tutorial), class: 'btn btn-primary mb1 bg-teal'  %>
         <%= button_to 'Destroy', admin_tutorial_path(tutorial),
                                method: :delete,
                                class: 'btn btn-primary mb1 bg-teal' %>
                                <hr>
+                             </div>
       </td>
     </tr>
   <% end %>

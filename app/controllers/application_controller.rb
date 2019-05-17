@@ -1,5 +1,3 @@
-require_relative './concerns/controller_helper'
-
 class ApplicationController < ActionController::Base
   include ControllerHelper
   helper_method :current_user

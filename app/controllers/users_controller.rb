@@ -12,8 +12,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    @user.confirmation_token
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "Logged in as #{@user.email}."
+      ConfirmMailer.registration_confirmation(@user).deliver_now
       redirect_to dashboard_path
     else
       flash.now[:error] = 'Username already exists'
@@ -26,5 +29,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
 end

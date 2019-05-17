@@ -37,6 +37,17 @@ RSpec.describe User, type: :model do
 
     end
 
+    describe 'confirmation_token' do
+      it 'updates a users confirm_token' do
+        user = User.create(email: 'user@email.com', password: 'password', first_name:'Jim', role: 0)
+        expect(user.confirm_token).to eq(nil)
+
+        user.confirmation_token
+        expect(user.confirm_token).to_not eq(nil)
+        expect(user.confirm_token).to be_a(String)
+      end
+    end
+
     it 'returns tutorials with bookmarked videos' do
       user = create(:user)
       tutorial= create(:tutorial, title: "I Love Pineapple Pizza")

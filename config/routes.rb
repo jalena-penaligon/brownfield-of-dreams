@@ -45,4 +45,6 @@ Rails.application.routes.draw do
 
   resources :user_videos, only:[:create, :destroy]
   get '/bookmarks', to: "user_videos#error", as: :bookmark_error
+
+  get '/confirm', to: 'confirm#create'
 end

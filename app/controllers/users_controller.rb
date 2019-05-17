@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    @user.confirmation_token
     if @user.save
       session[:user_id] = @user.id
       redirect_to dashboard_path
@@ -26,5 +27,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
 end

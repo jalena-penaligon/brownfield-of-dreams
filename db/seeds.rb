@@ -114,4 +114,12 @@ m3_tutorial.videos.create!({
   "position"=>6
 })
 
+m3_tutorial.videos.create!({
+  "title"=>"Advanced ActiveRecord",
+  "description"=> Faker::Hipster.paragraph(2, true),
+  "video_id"=>"OccKyvGvLKE",
+  "thumbnail"=>"https://i.ytimg.com/vi/OccKyvGvLKE/hqdefault.jpg",
+  "position"=>7
+})
+
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password:  "password", role: :admin)

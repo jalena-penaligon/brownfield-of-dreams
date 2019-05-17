@@ -1,5 +1,10 @@
 <section class='dashboard-main'>
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
+  <% if current_user.email_confirmed == false %>
+    <span class="flash-message">This account has not yet been activated. Please check your email.</span>
+    <br />
+  <% end %>
+
   <% if current_user.access_token == nil %>
     <%= link_to 'Connect to Github', github_login_path %>
       <br>

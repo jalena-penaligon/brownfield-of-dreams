@@ -71,5 +71,9 @@ describe 'as a visitor', :vcr, :js do
 
     expect(user.email_confirmed).to eq(false)
     expect(user.confirm_token).to be_a(String)
+
+    expect(current_path).to eq(dashboard_path)
+    save_and_open_page
+    expect(page).to have_content("This account has not yet been activated. Please check your email.")
   end
 end

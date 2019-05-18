@@ -42,7 +42,7 @@
 
   <div class="tag-field">
     <%= form_for [:admin, @tutorial] do |f| %>
-      <%= f.label :tag_list, "Separted by commas", class: "block" %>
+      <%= f.label :tag_list, "Separated by commas", class: "block" %>
       <%= f.text_field :tag_list, class: "field block" %><br>
       <%= f.submit "Update Tags", class: "video-position-submit btn btn-outline" %>
     <% end %>

@@ -7,6 +7,9 @@ AllCops:
     - lib/**/*
     - spec/**/*
     - node_modules/**/*
+    - Gemfile
+    - Rakefile
+    - config.ru
 Naming/MemoizedInstanceVariableName:
   EnforcedStyleForLeadingUnderscores: optional
 Style/Documentation:

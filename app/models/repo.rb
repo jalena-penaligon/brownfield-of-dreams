@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Repo
   attr_reader :name, :html_url
 

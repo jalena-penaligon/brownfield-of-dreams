@@ -8,7 +8,7 @@ describe GithubService, type: :service do
     end
 
     it 'gets repos' do
-      result = @service.get_repos
+      result = @service.retrieve_repos
 
       expect(result).to be_an(Array)
       expect(result.first).to have_key(:name)
@@ -16,7 +16,7 @@ describe GithubService, type: :service do
     end
 
     it 'gets followers' do
-      result = @service.get_followers
+      result = @service.retrieve_followers
 
       expect(result).to be_an(Array)
       expect(result.first).to have_key(:login)
@@ -24,7 +24,7 @@ describe GithubService, type: :service do
     end
 
     it 'gets following' do
-      result = @service.get_following
+      result = @service.retrieve_following
 
       expect(result).to be_an(Array)
       expect(result.first).to have_key(:login)
@@ -32,7 +32,7 @@ describe GithubService, type: :service do
     end
 
     it 'gets email by github handle' do
-      result = @service.get_email('jtaylor522')
+      result = @service.retrieve_email('jtaylor522')
 
       expect(result).to eq('jalena.marie.taylor@gmail.com')
     end

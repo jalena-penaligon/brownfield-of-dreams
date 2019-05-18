@@ -5,7 +5,7 @@
     <br />
   <% end %>
 
-  <% if current_user.access_token == nil %>
+  <% if current_user.access_token.nil? %>
     <%= link_to 'Connect to Github', github_login_path %>
       <br>
   <% else %>

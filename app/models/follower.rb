@@ -1,4 +1,4 @@
-require_relative "./concerns/registered_helper"
+# frozen_string_literal: true
 
 class Follower
   include RegisteredHelper
@@ -9,5 +9,4 @@ class Follower
     @login = follower_data[:login]
     @html_url = follower_data[:html_url]
   end
-
 end

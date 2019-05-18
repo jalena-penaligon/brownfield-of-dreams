@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 class Admin::TutorialsController < Admin::BaseController
   def edit
     @tutorial = Tutorial.find(params[:id])
   end
 
   def create
-    alter_tutorial_params = tutorial_params
-    alter_tutorial_params[:thumbnail] = YouTube::Video.by_id(tutorial_params[:thumbnail]).thumbnail
-    tutorial = Tutorial.create(alter_tutorial_params)
+    alt_params = tutorial_params
+    thumbnail = YouTube::Video.by_id(tutorial_params[:thumbnail]).thumbnail
+    alt_params[:thumbnail] = thumbnail
+    tutorial = Tutorial.create(alt_params)
     flash[:success] = 'Successfully created tutorial.'
     redirect_to tutorial_path(tutorial)
   end
@@ -25,13 +28,12 @@ class Admin::TutorialsController < Admin::BaseController
 
   def destroy
     tutorial = Tutorial.find(params[:id])
-    if tutorial.destroy
-      flash[:success] = "#{tutorial.title} has been deleted."
-    end
+    flash[:success] = "#{tutorial.title} has been deleted." if tutorial.destroy
     redirect_to admin_dashboard_path
   end
 
   private
+
   def tutorial_tag_params
     params.require(:tutorial).permit(:tag_list)
   end

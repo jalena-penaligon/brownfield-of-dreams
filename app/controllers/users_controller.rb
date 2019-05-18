@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def show
     render locals: {
@@ -19,8 +21,7 @@ class UsersController < ApplicationController
       ConfirmMailer.registration_confirmation(@user).deliver_now
       redirect_to dashboard_path
     else
-      flash.now[:error] = 'Username already exists'
-      render :new
+      user_already_exists
     end
   end
 
@@ -28,5 +29,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
+  end
+
+  def user_already_exists
+    flash.now[:error] = 'Username already exists'
+    render :new
   end
 end

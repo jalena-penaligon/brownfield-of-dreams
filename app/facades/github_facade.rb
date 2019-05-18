@@ -1,5 +1,6 @@
-class GithubFacade
+# frozen_string_literal: true
 
+class GithubFacade
   def initialize(current_user)
     @current_user = current_user
   end
@@ -27,15 +28,15 @@ class GithubFacade
   private
 
   def repo_data
-    @_repo_data ||= service.get_repos
+    @_repo_data ||= service.retrieve_repos
   end
 
   def follower_data
-    @_follower_data ||= service.get_followers
+    @_follower_data ||= service.retrieve_followers
   end
 
   def following_data
-    @_following_data ||= service.get_following
+    @_following_data ||= service.retrieve_following
   end
 
   def service

@@ -29,7 +29,7 @@ describe "As a registered, logged in user", :vcr do
     expect(page).to have_content("Enter valid github handle")
     fill_in "handle", with: "iamnotavalidgithubname"
     click_button "Send Invite"
-    error = "The github user you selected doesn't have a valid email address associated with their account."
+    error = "The github user you selected does not have a valid email address associated with their account."
     expect(page).to have_content(error)
     expect(current_path).to eq(invite_path)
   end

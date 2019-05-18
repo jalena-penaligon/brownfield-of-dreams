@@ -1,37 +1,37 @@
-class GithubService
+# frozen_string_literal: true
 
+class GithubService
   def initialize(current_user)
     @current_user = current_user
   end
 
-  def get_repos
-    get_json('user/repos')
+  def retrieve_repos
+    retrieve_json('user/repos')
   end
 
-  def get_followers
-    get_json('user/followers')
+  def retrieve_followers
+    retrieve_json('user/followers')
   end
 
-  def get_following
-    get_json('user/following')
+  def retrieve_following
+    retrieve_json('user/following')
   end
 
-  def get_email(handle)
-    get_json("users/#{handle}")[:email]
+  def retrieve_email(handle)
+    retrieve_json("users/#{handle}")[:email]
   end
 
   private
 
-  def get_json(url)
+  def retrieve_json(url)
     response = conn.get(url)
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn
-    Faraday.new("https://api.github.com/") do |f|
+    Faraday.new('https://api.github.com/') do |f|
       f.params[:access_token] = @current_user.access_token
       f.adapter Faraday.default_adapter
     end
   end
-
 end

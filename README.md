@@ -1,7 +1,7 @@
 # Brownfield Of Dreams
 by Dream Team Tripod
 
-Deployed site: https://fast-sea-29858.herokuapp.com/
+Deployed site: https://turing-tutorials-1901.herokuapp.com/
 
 This is the base repo for a brownfield project used at Turing for Backend Mod 3.
 
